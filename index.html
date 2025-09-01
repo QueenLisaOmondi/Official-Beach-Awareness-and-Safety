@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head role="banner">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Official Beach Awareness and Safety</title>
+    <!-- Include Tailwind CSS via CDN (for development only) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+     /* Custom responsive adjustments styles*/
+    <style>
+        @media (max-width: 767px) {
+            .hero-text {
+                text-align: center;
+                padding: 0 1.5rem;
+                max-width: 100%;
+                bottom: 2rem;
+            }
+            .hero-title {
+                font-size: 2.5rem;
+                margin-bottom: 1.5rem;
+            }
+            .hero-description {
+                font-size: 1rem;
+                margin-bottom: 1.5rem;
+            }
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+            }
+            .stats-container {
+                justify-content: flex-start;
+            }
+        }
+        
+        @media (min-width: 768px) and (max-width: 1199px) {
+            .hero-text {
+                padding: 0 3rem;
+                max-width: 80%;
+            }
+            .hero-title {
+                font-size: 4rem;
+            }
+        }
+    </style>
+   /*safety section adjustments styles*/
+    <style>
+        /* Custom styles for the flip cards */
+        .flip-card { 
+            perspective: 1000px; 
+        }
+        .flip-card-inner { 
+            transform-style: preserve-3d;
+            transition: transform 0.6s;
+        }
+        .flip-card-front, .flip-card-back { 
+            backface-visibility: hidden;
+        }
+        .flip-card-back { 
+            transform: rotateY(180deg);
+        }
+        .flip-card:hover .flip-card-inner { 
+            transform: rotateY(180deg);
+        }
+        
+        /* Ensure images fit properly in their containers */
+        .image-container {
+            height: 55%; /* Adjusted to take up slightly more than half */
+            overflow: hidden;
+            margin-top: -10%;
+        }
+        .image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* This ensures the image covers the container */
+        }
+        
+        /* Content container adjustments */
+        .content-container {
+            height: 55%; /* Adjusted to take up slightly more than half */
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        
+        /* Icon positioning on the border */
+        .icon-container {
+            position: absolute;
+            top: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 60px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 4px solid #93c5fd;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            z-index: 10;
+        }
+        
+        .icon-container img {
+            width: 70%;
+            height: 70%;
+            object-fit: contain;
+        }
+        
+        /* Adjust card positioning to accommodate the icon */
+        .flip-card-front, .flip-card-back {
+            padding-top: 20px; /* Add space at the top for the icon */
+        }
+    </style>
+</head>
+<body>
+<main role="main">
+
+<!-- Navigation Bar section-->
+<nav class="absolute top-0 left-0 w-full z-20 bg-black/40 backdrop-blur-sm" role="navigation">
+  <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+    
+    <!-- Logo / Brand -->
+    <a href="#" class="text-white text-2xl font-bold tracking-wide">
+      OceanGuard
+    </a>
+
+    <!-- Desktop Menu -->
+    <div class="hidden md:flex space-x-8">
+      <a href="#home" class="text-white hover:text-cyan-300 transition">Home</a>
+      <a href="#safety" class="text-white hover:text-cyan-300 transition">Safety Tips</a>
+      <a href="#help" class="text-white hover:text-cyan-300 transition">How to Help</a>
+      <a href="#contact" class="text-white hover:text-orange-400 transition">Contact</a>
+    </div>
+
+    <!-- Mobile Hamburger -->
+    <div class="md:hidden">
+      <button id="menu-btn" class="text-white focus:outline-none">
+        <!-- Hamburger Icon -->
+        <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" class="hidden md:hidden flex flex-col items-center bg-black/80">
+    <a href="#home" class="py-2 text-white hover:text-cyan-300">Home</a>
+    <a href="#safety" class="py-2 text-white hover:text-cyan-300">Safety Tips</a>
+    <a href="#help" class="py-2 text-white hover:text-cyan-300">How to Help</a>
+    <a href="#contact" class="py-2 text-white hover:text-orange-400">Contact</a>
+  </div>
+</nav>
+
+<!-- Mobile Menu Script -->
+<script>
+  const btn = document.getElementById('menu-btn');
+  const menu = document.getElementById('mobile-menu');
+  btn.addEventListener('click', () => {
+    menu.classList.toggle('hidden');
+  });
+</script>
+
+
+<!-- Hero Section -->
+<section class="relative min-h-screen">
+  <!-- Combined Background (Image + Gradient) -->
+  <div 
+    class="absolute inset-0 w-full h-full brightness-75"
+    style="
+      background-image: 
+        linear-gradient(to bottom, transparent, rgba(3, 105, 161, 0.8)),
+        url(/images/paper-fish.jpg);
+      background-size: cover;
+      background-position: center;
+    "
+  ></div>
+  
+  <!-- Dark Overlay for Text Readability -->
+  <div class="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60"></div>
+
+  <!-- Text Overlay -->
+  <div class="absolute bottom-0 right-0 z-10 p-12 max-w-2xl text-right">
+    <h1 class="text-6xl font-bold text-white mb-10">
+      Protect Our Beaches,<br>Protect Ourselves
+    </h1>
+    <p class="text-white text-xl font-normal max-w-2xl mb-16 leading-relaxed">
+      Every wave that touches shore carries both the beauty of marine life and the consequences of human action. 
+      We champion beach safety protocols that protect swimmers while preserving delicate coastal ecosystems. 
+      Through education and community action, we're creating sustainable solutions where humans and sea creatures 
+      thrive in balanced coexistence—because safeguarding our oceans means securing our own future.
+    </p>
+    <div class="flex gap-6 flex justify-end">
+      <a href="#safety" class="bg-orange-500 hover:bg-orange-600 text-white px-8 py-3 rounded-lg font-medium">
+        Safety Tips
+      </a>
+      <a href="#help" class="bg-cyan-400 hover:bg-cyan-500 text-blue-900 px-8 py-3 rounded-lg font-medium">
+        How to Help
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Wave Divider -->
+<div class="relative -mt-1 h-20 w-full overflow-hidden">
+  <svg 
+    viewBox="0 0 1200 120" 
+    preserveAspectRatio="none" 
+    class="absolute top-0 left-0 w-full h-full"
+    style="fill: #0369a1;"
+  >
+    <path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".25"></path>
+    <path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" opacity=".5"></path>
+    <path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z"></path>
+  </svg>
+</div>
+
+<!-- Safety & Awareness Cards -->
+<section id="safety" class="pt-8 pb-16 bg-sky-600 to-blue-700 -mt-20">
+        <div class="container mx-auto px-6 mt-20">
+            <h2 class="text-4xl font-bold text-white mb-16 text-center">Be Smart, Stay Safe</h2>
+
+            <!-- cards -->
+            <div class="grid md:grid-cols-3 gap-12">
+                <!-- Card 1 - Rip Current Safety -->
+                <div class="flip-card bg-transparent w-full h-[28rem] relative">
+                    <div class="icon-container">
+                        <img src="/images/safety-section-images/rip-current.png">
+                    </div>
+                    <div class="flip-card-inner relative w-full h-full text-center">
+                        <!-- Front Side -->
+                        <div class="flip-card-front absolute w-full h-full rounded-lg overflow-hidden flex flex-col bg-gradient-to-br from-blue-400 to-cyan-300 text-white border-4 border-white shadow-xl">
+                            <div class="image-container">
+                                <img src="/images/safety-section-images/rip-current.jpg" alt="rip current wave" class="w-full h-full">
+                            </div>
+                            <div class="content-container p-6">
+    <h3 class="text-3xl font-bold mb-2">Rip Current Safety</h3>
+    <p class="text-white text-opacity-100">Your quick guide to spotting danger and escaping safely.</p>
+</div>
+                        </div>
+                        <!-- Back Side -->
+                        <div class="flip-card-back absolute w-full h-full rounded-lg p-6 flex flex-col justify-center bg-sky-600  text-white border-4 border-white shadow-xl">
+                            <h3 class="text-xl font-bold mb-4">If caught in a rip current:</h3>
+                            <ul class="text-left space-y-2 text-white text-opacity-90">
+                                 <li>• <strong>Stay calm</strong> and conserve your energy</li>
+        <li>• <strong>Don't fight it</strong> – you can't swim straight in</li>
+        <li>• <strong>Swim parallel</strong> to the shoreline to escape</li>
+        <li>• <strong>Float and call</strong> for help if you can't break free</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2 - Marine Life -->
+                <div class="flip-card bg-transparent w-full h-[28rem] relative">
+                    <div class="icon-container">
+                        <img src="/images/safety-section-images/jellyfish.png" alt="jellyfish icon">
+                    </div>
+                    <div class="flip-card-inner relative w-full h-full text-center">
+                        <!-- Front Side -->
+                        <div class="flip-card-front absolute w-full h-full rounded-lg overflow-hidden flex flex-col bg-gradient-to-br from-blue-400 to-cyan-300 text-white border-4 border-white shadow-xl">
+                            <div class="image-container">
+                                <img src="/images/safety-section-images/whale.jpg" alt="a whale" class="w-full h-full">
+                            </div>
+                            <div class="content-container p-6">
+                                 <h3 class="text-2xl font-bold mb-2">Respect Marine Life</h3>
+    <p class="text-white text-opacity-90">Be a guardian of the blue.</p>
+                            </div>
+                        </div>
+                        <!-- Back Side -->
+                        <div class="flip-card-back absolute w-full h-full rounded-lg p-6 flex flex-col justify-center bg-sky-600  text-white border-4 border-white shadow-xl">
+                            <h3 class="text-xl font-bold mb-4">Protect ocean ecosystems:</h3>
+                            <ul class="text-left space-y-2 text-white text-opacity-90">
+                               <li>• <strong>Look, don't touch:</strong> Coral is alive and fragile</li>
+        <li>• <strong>Choose reusables:</strong> Refuse single-use plastics</li>
+        <li>• <strong>Wear reef-safe sunscreen</strong> to prevent chemical damage</li>
+        <li>• <strong>Leave no trace</strong> – take your trash and beyond</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3 - Sun Protection -->
+                <div class="flip-card bg-transparent w-full h-[28rem] relative">
+                    <div class="icon-container">
+                        <img src="/images/safety-section-images/sunscreen.png" alt="suncreen icon">
+                    </div>
+                    <div class="flip-card-inner relative w-full h-full text-center">
+                        <!-- Front Side -->
+                        <div class="flip-card-front absolute w-full h-full rounded-lg overflow-hidden flex flex-col bg-gradient-to-br from-blue-400 to-cyan-300 text-white border-4 border-white shadow-xl">
+                            <div class="image-container">
+                                <img src="images/safety-section-images/spf.jpg" alt="spf lotion image" class="w-full h-full">
+                            </div>
+                            <div class="content-container p-6">
+                               <h3 class="text-2xl font-bold mb-2">Sun Protection</h3>
+    <p class="text-white text-opacity-90">Enjoy the sun safely.</p>
+                            </div>
+                        </div>
+                        <!-- Back Side -->
+                        <div class="flip-card-back absolute w-full h-full rounded-lg p-6 flex flex-col justify-center bg-sky-600  text-white border-4 border-white shadow-xl">
+                            <h3 class="text-xl font-bold mb-4">Sun safety essentials:</h3>
+                            <ul class="text-left space-y-2 text-white text-opacity-90">
+                              <li>• <strong>Reapply SPF 30+</strong> every 2 hours & after swimming</li>
+        <li>• <strong>Seek shade</strong> during peak intensity (10am-4pm)</li>
+        <li>• <strong>Cover up</strong> with a hat, sunglasses, and a shirt</li>
+        <li>• <strong>Drink water</strong> consistently to avoid heat exhaustion</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<!-- Stats Infographic Section -->
+<section class="py-16  bg-gradient-to-b from-sky-600 to-blue-700  text-white">
+  <div class="container mx-auto px-6">
+    <h2 class="text-4xl font-bold mb-12 text-center">Why It Matters</h2>
+    <div class="flex overflow-x-auto pb-6 gap-8 md:justify-center">
+      <!-- Stat 1 -->
+      <div class="flex-shrink-0 text-center">
+        <p class="text-5xl font-bold mb-2">80%</p>
+        <p class="text-cyan-400">of ocean pollution comes from land</p>
+      </div>
+      <!-- Stat 2 -->
+      <div class="flex-shrink-0 text-center">
+        <p class="text-5xl font-bold mb-2">3,000+</p>
+        <p class="text-cyan-400">drowning deaths yearly</p>
+      </div>
+      <!-- Stat 3 -->
+      <div class="flex-shrink-0 text-center">
+        <p class="text-5xl font-bold mb-2">90%</p>
+        <p class="text-cyan-400">of coral reefs could vanish by 2050</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+    <!--CTA Section Sunset Gradient-->
+    <section id="help" class="py-16 bg-blue-700">
+  <div class="container mx-auto px-6 text-center">
+    <h2 class="text-4xl font-bold text-white mb-6">Take Action Today</h2>
+    <p class="text-xl text-white mb-8 max-w-2xl mx-auto">Small changes make a big difference for beaches and marine life.</p>
+    <a href="#" class="bg-orange-500 hover:bg-blue-800 text-white px-8 py-3 rounded-lg font-medium inline-block">Join Our Movement</a>
+  </div>
+</section>
+</main>
+<!--footer section-->
+   <footer class="bg-blue-700 text-white py-10">
+    <div class="container mx-auto px-4">
+        <div class="flex flex-col md:flex-row justify-between items-center md:items-start text-center md:text-left mb-6">
+            <!-- Mission Statement -->
+            <div class="mb-6 md:mb-0 md:max-w-xs">
+                <p class="text-xl font-semibold mb-2">Beach Safe</p>
+                <p class="text-blue-100 text-opacity-80">Your guide to safer seas and smarter shores.</p>
+            </div>
+
+            <!-- Quick Links -->
+            <div class="mb-6 md:mb-0">
+                <p class="font-bold mb-2">Explore</p>
+                <nav class="flex flex-col space-y-1">
+                    <a href="#rip-currents" class="text-blue-200 hover:text-white text-sm">Rip Currents</a>
+                    <a href="#marine-life" class="text-blue-200 hover:text-white text-sm">Marine Life</a>
+                    <a href="#sun-safety" class="text-blue-200 hover:text-white text-sm">Sun Safety</a>
+                </nav>
+            </div>
+
+            <!-- External Resources -->
+            <div>
+                <p class="font-bold mb-2">Learn More</p>
+                <nav class="flex flex-col space-y-1">
+                    <a href="https://www.weather.gov/" target="_blank" class="text-blue-200 hover:text-white text-sm">National Weather Service</a>
+                    <a href="https://www.noaa.gov/" target="_blank" class="text-blue-200 hover:text-white text-sm">NOAA Ocean Today</a>
+                </nav>
+            </div>
+        </div>
+
+        <!-- Copyright -->
+        <div class="border-t border-blue-600 pt-6 text-center">
+            <p class="text-sm text-blue-200">&copy; 2025 Beach Safety Awareness. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+</body>
+</html>
