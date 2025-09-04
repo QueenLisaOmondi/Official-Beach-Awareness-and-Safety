@@ -65,13 +65,14 @@
         
         /* Ensure images fit properly in their containers */
         .image-container {
-            height: 55%; /* Adjusted to take up slightly more than half */
+            height: 65%; /* Adjusted to take up slightly more than half */
             overflow: hidden;
             margin-top: -10%;
         }
         .image-container img {
             width: 100%;
             height: 100%;
+          
             object-fit: cover; /* This ensures the image covers the container */
         }
         
@@ -96,7 +97,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            border: 4px solid #93c5fd;
+            border: 4px solid white;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             z-index: 10;
         }
@@ -220,101 +221,128 @@
 <section id="safety" class="pt-8 pb-16 bg-sky-600 to-blue-700 -mt-20">
         <div class="container mx-auto px-6 mt-20">
             <h2 class="text-4xl font-bold text-white mb-16 text-center">Be Smart, Stay Safe</h2>
-
-            <!-- cards -->
-            <div class="grid md:grid-cols-3 gap-12">
-                <!-- Card 1 - Rip Current Safety -->
-                <div class="flip-card bg-transparent w-full h-[28rem] relative">
-                    <div class="icon-container">
-                        <img src="/images/safety-section-images/rip-current.png">
-                    </div>
-                    <div class="flip-card-inner relative w-full h-full text-center">
-                        <!-- Front Side -->
-                        <div class="flip-card-front absolute w-full h-full rounded-lg overflow-hidden flex flex-col bg-gradient-to-br from-blue-400 to-cyan-300 text-white border-4 border-white shadow-xl">
-                            <div class="image-container">
-                                <img src="/images/safety-section-images/rip-current.jpg" alt="rip current wave" class="w-full h-full">
-                            </div>
-                            <div class="content-container p-6">
-    <h3 class="text-3xl font-bold mb-2">Rip Current Safety</h3>
-    <p class="text-white text-opacity-100">Your quick guide to spotting danger and escaping safely.</p>
-</div>
-                        </div>
-                        <!-- Back Side -->
-                        <div class="flip-card-back absolute w-full h-full rounded-lg p-6 flex flex-col justify-center bg-sky-600  text-white border-4 border-white shadow-xl">
-                            <h3 class="text-xl font-bold mb-4">If caught in a rip current:</h3>
-                            <ul class="text-left space-y-2 text-white text-opacity-90">
-                                 <li>• <strong>Stay calm</strong> and conserve your energy</li>
-        <li>• <strong>Don't fight it</strong> – you can't swim straight in</li>
-        <li>• <strong>Swim parallel</strong> to the shoreline to escape</li>
-        <li>• <strong>Float and call</strong> for help if you can't break free</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Card 2 - Marine Life -->
-                <div class="flip-card bg-transparent w-full h-[28rem] relative">
-                    <div class="icon-container">
-                        <img src="/images/safety-section-images/jellyfish.png" alt="jellyfish icon">
-                    </div>
-                    <div class="flip-card-inner relative w-full h-full text-center">
-                        <!-- Front Side -->
-                        <div class="flip-card-front absolute w-full h-full rounded-lg overflow-hidden flex flex-col bg-gradient-to-br from-blue-400 to-cyan-300 text-white border-4 border-white shadow-xl">
-                            <div class="image-container">
-                                <img src="/images/safety-section-images/whale.jpg" alt="a whale" class="w-full h-full">
-                            </div>
-                            <div class="content-container p-6">
-                                 <h3 class="text-2xl font-bold mb-2">Respect Marine Life</h3>
-    <p class="text-white text-opacity-90">Be a guardian of the blue.</p>
-                            </div>
-                        </div>
-                        <!-- Back Side -->
-                        <div class="flip-card-back absolute w-full h-full rounded-lg p-6 flex flex-col justify-center bg-sky-600  text-white border-4 border-white shadow-xl">
-                            <h3 class="text-xl font-bold mb-4">Protect ocean ecosystems:</h3>
-                            <ul class="text-left space-y-2 text-white text-opacity-90">
-                               <li>• <strong>Look, don't touch:</strong> Coral is alive and fragile</li>
-        <li>• <strong>Choose reusables:</strong> Refuse single-use plastics</li>
-        <li>• <strong>Wear reef-safe sunscreen</strong> to prevent chemical damage</li>
-        <li>• <strong>Leave no trace</strong> – take your trash and beyond</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Card 3 - Sun Protection -->
-                <div class="flip-card bg-transparent w-full h-[28rem] relative">
-                    <div class="icon-container">
-                        <img src="/images/safety-section-images/sunscreen.png" alt="suncreen icon">
-                    </div>
-                    <div class="flip-card-inner relative w-full h-full text-center">
-                        <!-- Front Side -->
-                        <div class="flip-card-front absolute w-full h-full rounded-lg overflow-hidden flex flex-col bg-gradient-to-br from-blue-400 to-cyan-300 text-white border-4 border-white shadow-xl">
-                            <div class="image-container">
-                                <img src="images/safety-section-images/spf.jpg" alt="spf lotion image" class="w-full h-full">
-                            </div>
-                            <div class="content-container p-6">
-                               <h3 class="text-2xl font-bold mb-2">Sun Protection</h3>
-    <p class="text-white text-opacity-90">Enjoy the sun safely.</p>
-                            </div>
-                        </div>
-                        <!-- Back Side -->
-                        <div class="flip-card-back absolute w-full h-full rounded-lg p-6 flex flex-col justify-center bg-sky-600  text-white border-4 border-white shadow-xl">
-                            <h3 class="text-xl font-bold mb-4">Sun safety essentials:</h3>
-                            <ul class="text-left space-y-2 text-white text-opacity-90">
-                              <li>• <strong>Reapply SPF 30+</strong> every 2 hours & after swimming</li>
-        <li>• <strong>Seek shade</strong> during peak intensity (10am-4pm)</li>
-        <li>• <strong>Cover up</strong> with a hat, sunglasses, and a shirt</li>
-        <li>• <strong>Drink water</strong> consistently to avoid heat exhaustion</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
+<!--Card section-->
+       
+  <!-- Caution icon positioned for the whole section -->
+  <div class="absolute -top-4 -right-4 z-10"> 
+    <img 
+      src="/images/caution-image.svg" 
+      alt="Caution icon" 
+      class="w-26 h-26 transition-transform duration-500 hover:scale-105"
+    >
+  </div>
+  
+  <!-- Cards container -->
+  <div class="p-8 flex flex-row gap-6 justify-center mb-10 overflow-x-auto">
+    
+    <!-- Card 1 - Rip Current Safety -->
+    <div class="flip-card bg-transparent w-96 h-96 relative"> <!-- Reduced width -->
+      <div class="icon-container absolute top-4 right-4 z-10"> <!-- Icon for THIS card -->
+        <img src="/images/safety-section-images/rip-current.png" class="w-12 h-12">
+      </div>
+      <div class="flip-card-inner relative w-full h-full text-center">
+        <!-- Front Side -->
+        <div class="flip-card-front absolute w-full h-full rounded-lg overflow-hidden flex flex-col bg-gradient-to-br from-blue-400 to-cyan-300 text-white border-4 border-white shadow-xl">
+          <div class="image-container h-1/2"> <!-- Fixed image height -->
+            <img src="/images/safety-section-images/rip-current.jpg" alt="rip current wave" class="w-full h-full object-cover">
+          </div>
+          <div class="content-container p-6 h-1/2 flex flex-col justify-center -mt-1"> <!-- Fixed content height -->
+            <h3 class="text-2xl font-bold mb-2">Rip Current Safety</h3>
+            <p class="text-white content-center">Your quick guide to spotting danger and escaping safely.</p>
+          </div>
         </div>
+        <!-- Back Side -->
+        <div class="flip-card-back absolute w-full h-full rounded-lg p-6 flex flex-col justify-center bg-sky-600 text-white border-4 border-white shadow-xl">
+          <h3 class="text-xl font-bold mb-4">If caught in a rip current:</h3>
+          <ul class="text-left space-y-2">
+            <li>• <strong>Stay calm</strong> and conserve your energy</li>
+            <li>• <strong>Don't fight it</strong> – you can't swim straight in</li>
+            <li>• <strong>Swim parallel</strong> to the shoreline to escape</li>
+            <li>• <strong>Float and call</strong> for help if you can't break free</li>
+          </ul>
+          <a href="https://oceanservice.noaa.gov/facts/ripcurrent.html" target="_blank" class="bg-white text-blue-600 font-semibold py-2 px-4 rounded-lg shadow-md hover:bg-blue-50 transition-colors mx-auto mt-8">
+                                    Learn More
+                                </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 2 - Marine Life  -->
+    <div class="flip-card bg-transparent w-96 h-96 relative">
+      <div class="icon-container absolute top-4 right-4 z-10">
+        <img src="/images/safety-section-images/jellyfish.png" alt="jellyfish icon" class="w-12 h-12">
+      </div>
+      <div class="flip-card-inner relative w-full h-full text-center">
+        <!-- Front Side -->
+        <div class="flip-card-front absolute w-full h-full rounded-lg overflow-hidden flex flex-col bg-gradient-to-br from-blue-400 to-cyan-300 text-white border-4 border-white shadow-xl">
+          <div class="image-container h-1/2">
+            <img src="/images/safety-section-images/whale.jpg" alt="a whale" class="w-full h-full object-cover">
+          </div>
+          <div class="content-container p-6 h-1/2 flex flex-col justify-center">
+            <h3 class="text-2xl font-bold mb-2">Respect Marine Life</h3>
+            <p class="text-white">Be a guardian of the blue.</p>
+          </div>
+        </div>
+        <!-- Back Side -->
+        <div class="flip-card-back absolute w-full h-full rounded-lg p-6 flex flex-col justify-center bg-sky-600 text-white border-4 border-white shadow-xl">
+          <h3 class="text-xl font-bold mb-4">Protect ocean ecosystems:</h3>
+          <ul class="text-left space-y-2">
+            <li>• <strong>Look, don't touch:</strong> Coral is alive and fragile</li>
+            <li>• <strong>Choose reusables:</strong> Refuse single-use plastics</li>
+            <li>• <strong>Wear reef-safe sunscreen</strong> to prevent chemical damage</li>
+            <li>• <strong>Leave no trace</strong> – take your trash and beyond</li>
+          </ul>
+          <a href="https://oceanservice.noaa.gov/news/sunscreen-corals.html" target="_blank" class="bg-white text-blue-600 font-semibold py-2 px-4 rounded-lg shadow-md hover:bg-blue-50 transition-colors mx-auto mt-8">
+                                    Learn More
+                                </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 3 - Sun Protection  -->
+    <div class="flip-card bg-transparent w-96 h-96 relative">
+      <div class="icon-container absolute top-4 right-4 z-10">
+        <img src="/images/safety-section-images/sunscreen.png" alt="sunscreen icon" class="w-12 h-12">
+      </div>
+      <div class="flip-card-inner relative w-full h-full text-center">
+        <!-- Front Side -->
+        <div class="flip-card-front absolute w-full h-full rounded-lg overflow-hidden flex flex-col bg-gradient-to-br from-blue-400 to-cyan-300 text-white border-4 border-white shadow-xl">
+          <div class="image-container h-1/2">
+            <img src="images/safety-section-images/spf.jpg" alt="spf lotion image" class="w-full h-full object-cover">
+          </div>
+          <div class="content-container p-6 h-1/2 flex flex-col justify-center">
+            <h3 class="text-2xl font-bold mb-2">Sun Protection</h3>
+            <p class="text-white">Enjoy the sun safely.</p>
+          </div>
+        </div>
+        <!-- Back Side -->
+        <div class="flip-card-back absolute w-full h-full rounded-lg p-6 flex flex-col justify-center bg-sky-600 text-white border-4 border-white shadow-xl">
+          <h3 class="text-xl font-bold mb-4">Sun safety essentials:</h3>
+          <ul class="text-left space-y-2">
+            <li>• <strong>Reapply SPF 30+</strong> every 2 hours & after swimming</li>
+            <li>• <strong>Seek shade</strong> during peak intensity (10am-4pm)</li>
+            <li>• <strong>Cover up</strong> with a hat, sunglasses, and a shirt</li>
+            <li>• <strong>Drink water</strong> consistently to avoid heat exhaustion</li>
+          </ul>
+          <a href=" https://www.fisheries.noaa.gov/topic/marine-life-viewing-guidelines" class="bg-white text-blue-600 font-semibold py-2 px-4 rounded-lg shadow-md hover:bg-blue-50 transition-colors mx-auto mt-8">
+                                    Learn More
+                                </a>
+        </div>
+      </div>
+    </div>
+  </div>
     </section>
 
 <!-- Stats Infographic Section -->
-<section class="py-16  bg-gradient-to-b from-sky-600 to-blue-700  text-white">
+<section class="py-16  bg-gradient-to-b from-sky-600 to-blue-700  text-white relative">
+  <!-- Caution icon positioned for the whole section -->
+  <div class="absolute -top-28 -right-2 z-10 md:-top-28 md:-right-2"> 
+    <img 
+      src="/images/caution-image.svg" 
+      alt="Caution icon" 
+      class="w-26 h-26 transition-transform duration-500 hover:scale-105"
+    >
+  </div>
   <div class="container mx-auto px-6">
     <h2 class="text-4xl font-bold mb-12 text-center">Why It Matters</h2>
     <div class="flex overflow-x-auto pb-6 gap-8 md:justify-center">
