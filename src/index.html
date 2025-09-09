@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-<head role="banner">
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Official Beach Awareness and Safety</title>
     <!-- Include Tailwind CSS via CDN (for development only) -->
     <script src="https://cdn.tailwindcss.com"></script>
-     /* Custom responsive adjustments styles*/
+    <!-- Custom responsive adjustments styles-->
     <style>
         @media (max-width: 767px) {
             .hero-text {
@@ -43,7 +43,7 @@
             }
         }
     </style>
-   /*safety section adjustments styles*/
+    <!--safety section adjustments styles-->
     <style>
         /* Custom styles for the flip cards */
         .flip-card { 
@@ -72,7 +72,6 @@
         .image-container img {
             width: 100%;
             height: 100%;
-          
             object-fit: cover; /* This ensures the image covers the container */
         }
         
@@ -219,25 +218,16 @@
 
 <!-- Safety & Awareness Cards -->
 <section id="safety" class="pt-8 pb-16 bg-sky-600 to-blue-700 -mt-20">
-        <div class="container mx-auto px-6 mt-20">
-            <h2 class="text-4xl font-bold text-white mb-16 text-center">Be Smart, Stay Safe</h2>
-<!--Card section-->
-       
-  <!-- Caution icon positioned for the whole section -->
-  <div class="absolute -top-4 -right-4 z-10"> 
-    <img 
-      src="/images/caution-image.svg" 
-      alt="Caution icon" 
-      class="w-26 h-26 transition-transform duration-500 hover:scale-105"
-    >
-  </div>
-  
+    <div class="container mx-auto px-6 mt-20">
+        <h2 class="text-4xl font-bold text-white mb-16 text-center">Be Smart, Stay Safe</h2>
+        
+         <!-- Cards container -->
   <!-- Cards container -->
   <div class="p-8 flex flex-row gap-6 justify-center mb-10 overflow-x-auto">
     
     <!-- Card 1 - Rip Current Safety -->
-    <div class="flip-card bg-transparent w-96 h-96 relative"> <!-- Reduced width -->
-      <div class="icon-container absolute top-4 right-4 z-10"> <!-- Icon for THIS card -->
+    <div class="flip-card bg-transparent w-96 h-96 relative"> 
+      <div class="icon-container absolute -top-6 right-4 z-10"> <!-- Icon for THIS card -->
         <img src="/images/safety-section-images/rip-current.png" class="w-12 h-12">
       </div>
       <div class="flip-card-inner relative w-full h-full text-center">
@@ -253,8 +243,8 @@
         </div>
         <!-- Back Side -->
         <div class="flip-card-back absolute w-full h-full rounded-lg p-6 flex flex-col justify-center bg-sky-600 text-white border-4 border-white shadow-xl">
-          <h3 class="text-xl font-bold mb-4">If caught in a rip current:</h3>
-          <ul class="text-left space-y-2">
+          <h3 class="text-xl font-bold -mb-5">If caught in a rip current:</h3>
+          <ul class="text-left space-y-2 mt-7">
             <li>• <strong>Stay calm</strong> and conserve your energy</li>
             <li>• <strong>Don't fight it</strong> – you can't swim straight in</li>
             <li>• <strong>Swim parallel</strong> to the shoreline to escape</li>
@@ -269,7 +259,7 @@
 
     <!-- Card 2 - Marine Life  -->
     <div class="flip-card bg-transparent w-96 h-96 relative">
-      <div class="icon-container absolute top-4 right-4 z-10">
+      <div class="icon-container absolute -top-6 right-4 z-10">
         <img src="/images/safety-section-images/jellyfish.png" alt="jellyfish icon" class="w-12 h-12">
       </div>
       <div class="flip-card-inner relative w-full h-full text-center">
@@ -285,8 +275,8 @@
         </div>
         <!-- Back Side -->
         <div class="flip-card-back absolute w-full h-full rounded-lg p-6 flex flex-col justify-center bg-sky-600 text-white border-4 border-white shadow-xl">
-          <h3 class="text-xl font-bold mb-4">Protect ocean ecosystems:</h3>
-          <ul class="text-left space-y-2">
+          <h3 class="text-xl font-bold -mb-5">Protect ocean ecosystems:</h3>
+          <ul class="text-left space-y-2 mt-7">
             <li>• <strong>Look, don't touch:</strong> Coral is alive and fragile</li>
             <li>• <strong>Choose reusables:</strong> Refuse single-use plastics</li>
             <li>• <strong>Wear reef-safe sunscreen</strong> to prevent chemical damage</li>
@@ -300,15 +290,15 @@
     </div>
 
     <!-- Card 3 - Sun Protection  -->
-    <div class="flip-card bg-transparent w-96 h-96 relative">
-      <div class="icon-container absolute top-4 right-4 z-10">
+     <div class="flip-card bg-transparent w-96 h-96 relative">
+      <div class="icon-container absolute -top-6 right-4 z-10">
         <img src="/images/safety-section-images/sunscreen.png" alt="sunscreen icon" class="w-12 h-12">
       </div>
       <div class="flip-card-inner relative w-full h-full text-center">
         <!-- Front Side -->
         <div class="flip-card-front absolute w-full h-full rounded-lg overflow-hidden flex flex-col bg-gradient-to-br from-blue-400 to-cyan-300 text-white border-4 border-white shadow-xl">
           <div class="image-container h-1/2">
-            <img src="images/safety-section-images/spf.jpg" alt="spf lotion image" class="w-full h-full object-cover">
+            <img src="/images/safety-section-images/spf.jpg" alt="people sunbathing" class="w-full h-full object-cover">
           </div>
           <div class="content-container p-6 h-1/2 flex flex-col justify-center">
             <h3 class="text-2xl font-bold mb-2">Sun Protection</h3>
@@ -331,51 +321,47 @@
       </div>
     </div>
   </div>
+    </div>
+  </div>
+    </div>
     </section>
 
 <!-- Stats Infographic Section -->
-<section class="py-16  bg-gradient-to-b from-sky-600 to-blue-700  text-white relative">
-  <!-- Caution icon positioned for the whole section -->
-  <div class="absolute -top-28 -right-2 z-10 md:-top-28 md:-right-2"> 
-    <img 
-      src="/images/caution-image.svg" 
-      alt="Caution icon" 
-      class="w-26 h-26 transition-transform duration-500 hover:scale-105"
-    >
-  </div>
-  <div class="container mx-auto px-6">
-    <h2 class="text-4xl font-bold mb-12 text-center">Why It Matters</h2>
-    <div class="flex overflow-x-auto pb-6 gap-8 md:justify-center">
-      <!-- Stat 1 -->
-      <div class="flex-shrink-0 text-center">
-        <p class="text-5xl font-bold mb-2">80%</p>
-        <p class="text-cyan-400">of ocean pollution comes from land</p>
-      </div>
-      <!-- Stat 2 -->
-      <div class="flex-shrink-0 text-center">
-        <p class="text-5xl font-bold mb-2">3,000+</p>
-        <p class="text-cyan-400">drowning deaths yearly</p>
-      </div>
-      <!-- Stat 3 -->
-      <div class="flex-shrink-0 text-center">
-        <p class="text-5xl font-bold mb-2">90%</p>
-        <p class="text-cyan-400">of coral reefs could vanish by 2050</p>
-      </div>
+<section class="py-16 bg-gradient-to-b from-sky-600 to-blue-700 text-white relative">
+    <div class="container mx-auto px-6">
+        <h2 class="text-4xl font-bold mb-12 text-center">Why It Matters</h2>
+        <div class="flex flex-wrap justify-center gap-8 pb-6">
+            <!-- Stat 1 -->
+            <div class="text-center">
+                <p class="text-5xl font-bold mb-2">80%</p>
+                <p class="text-cyan-400">of ocean pollution comes from land</p>
+            </div>
+            <!-- Stat 2 -->
+            <div class="text-center">
+                <p class="text-5xl font-bold mb-2">3,000+</p>
+                <p class="text-cyan-400">drowning deaths yearly</p>
+            </div>
+            <!-- Stat 3 -->
+            <div class="text-center">
+                <p class="text-5xl font-bold mb-2">90%</p>
+                <p class="text-cyan-400">of coral reefs could vanish by 2050</p>
+            </div>
+        </div>
     </div>
-  </div>
 </section>
 
-    <!--CTA Section Sunset Gradient-->
-    <section id="help" class="py-16 bg-blue-700">
-  <div class="container mx-auto px-6 text-center">
-    <h2 class="text-4xl font-bold text-white mb-6">Take Action Today</h2>
-    <p class="text-xl text-white mb-8 max-w-2xl mx-auto">Small changes make a big difference for beaches and marine life.</p>
-    <a href="#" class="bg-orange-500 hover:bg-blue-800 text-white px-8 py-3 rounded-lg font-medium inline-block">Join Our Movement</a>
-  </div>
+<!-- CTA Section Sunset Gradient-->
+<section id="help" class="py-16 bg-blue-700">
+    <div class="container mx-auto px-6 text-center">
+        <h2 class="text-4xl font-bold text-white mb-6">Take Action Today</h2>
+        <p class="text-xl text-white mb-8 max-w-2xl mx-auto">Small changes make a big difference for beaches and marine life.</p>
+        <a href="#" class="bg-orange-500 hover:bg-blue-800 text-white px-8 py-3 rounded-lg font-medium inline-block">Join Our Movement</a>
+    </div>
 </section>
 </main>
+
 <!--footer section-->
-   <footer class="bg-blue-700 text-white py-10">
+<footer class="bg-blue-700 text-white py-10">
     <div class="container mx-auto px-4">
         <div class="flex flex-col md:flex-row justify-between items-center md:items-start text-center md:text-left mb-6">
             <!-- Mission Statement -->
