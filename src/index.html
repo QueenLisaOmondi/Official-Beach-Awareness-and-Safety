@@ -3,398 +3,941 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Official Beach Awareness and Safety</title>
-    <!-- Include Tailwind CSS via CDN (for development only) -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Custom responsive adjustments styles-->
+    <title>Beach Awareness & Safety - Protect Our Oceans & Ourselves</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
-        @media (max-width: 767px) {
-            .hero-text {
-                text-align: center;
-                padding: 0 1.5rem;
-                max-width: 100%;
-                bottom: 2rem;
-            }
-            .hero-title {
-                font-size: 2.5rem;
-                margin-bottom: 1.5rem;
-            }
-            .hero-description {
-                font-size: 1rem;
-                margin-bottom: 1.5rem;
-            }
-            .hero-buttons {
-                flex-direction: column;
-                align-items: center;
-                gap: 1rem;
-            }
-            .stats-container {
-                justify-content: flex-start;
-            }
+        :root {
+            --ocean-blue: #0077be;
+            --deep-blue: #003d5c;
+            --coral: #ff6b6b;
+            --sand: #f4e8d0;
+            --seafoam: #4ecdc4;
+            --white: #ffffff;
+            --gray: #666;
+            --dark-gray: #333;
+            --success: #2ecc71;
+            --warning: #f39c12;
+            --danger: #e74c3c;
         }
-        
-        @media (min-width: 768px) and (max-width: 1199px) {
-            .hero-text {
-                padding: 0 3rem;
-                max-width: 80%;
-            }
-            .hero-title {
-                font-size: 4rem;
-            }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
-    </style>
-    <!--safety section adjustments styles-->
-    <style>
-        /* Custom styles for the flip cards */
-        .flip-card { 
-            perspective: 1000px; 
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--dark-gray);
+            overflow-x: hidden;
         }
-        .flip-card-inner { 
-            transform-style: preserve-3d;
-            transition: transform 0.6s;
-        }
-        .flip-card-front, .flip-card-back { 
-            backface-visibility: hidden;
-        }
-        .flip-card-back { 
-            transform: rotateY(180deg);
-        }
-        .flip-card:hover .flip-card-inner { 
-            transform: rotateY(180deg);
-        }
-        
-        /* Ensure images fit properly in their containers */
-        .image-container {
-            height: 65%; /* Adjusted to take up slightly more than half */
-            overflow: hidden;
-            margin-top: -10%;
-        }
-        .image-container img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover; /* This ensures the image covers the container */
-        }
-        
-        /* Content container adjustments */
-        .content-container {
-            height: 55%; /* Adjusted to take up slightly more than half */
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-        
-        /* Icon positioning on the border */
-        .icon-container {
-            position: absolute;
-            top: -30px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 60px;
-            height: 60px;
-            background: white;
-            border-radius: 50%;
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(135deg, var(--ocean-blue) 0%, var(--deep-blue) 100%);
             display: flex;
             align-items: center;
             justify-content: center;
-            border: 4px solid white;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            z-index: 10;
+            text-align: center;
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
         }
-        
-        .icon-container img {
-            width: 70%;
-            height: 70%;
-            object-fit: contain;
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><defs><pattern id="waves" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse"><path d="M0 50 Q25 25 50 50 T100 50 V100 H0 Z" fill="rgba(255,255,255,0.05)"/></pattern></defs><rect width="1200" height="800" fill="url(%23waves)"/></svg>') center/cover;
+            animation: waveFloat 20s ease-in-out infinite;
         }
-        
-        /* Adjust card positioning to accommodate the icon */
+
+        @keyframes waveFloat {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            padding: 0 20px;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero p {
+            font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 15px 30px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .btn-primary {
+            background: var(--coral);
+            color: var(--white);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--white);
+            border: 2px solid var(--white);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+
+        .btn-primary:hover {
+            background: #ff5252;
+        }
+
+        .btn-secondary:hover {
+            background: var(--white);
+            color: var(--ocean-blue);
+        }
+
+        /* Wave Separator */
+        .wave-separator {
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"><path d="M0,120 C300,0 900,120 1200,0 L1200,120 Z" fill="white"/></svg>') center bottom/cover no-repeat;
+        }
+
+        /* Safety Cards Section */
+        .safety-section {
+            padding: 100px 20px;
+            background: var(--white);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--deep-blue);
+            margin-bottom: 3rem;
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .flip-card {
+            background-color: transparent;
+            width: 100%;
+            height: 300px;
+            perspective: 1000px;
+        }
+
+        .flip-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.8s;
+            transform-style: preserve-3d;
+        }
+
+        .flip-card:hover .flip-card-inner {
+            transform: rotateY(180deg);
+        }
+
         .flip-card-front, .flip-card-back {
-            padding-top: 20px; /* Add space at the top for the icon */
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+        }
+
+        .flip-card-back {
+            transform: rotateY(180deg);
+            background: var(--deep-blue);
+            color: var(--white);
+        }
+
+        .card-rip { background: linear-gradient(135deg, var(--coral), #ff8a80); }
+        .card-sun { background: linear-gradient(135deg, var(--warning), #ffb74d); }
+        .card-marine { background: linear-gradient(135deg, var(--seafoam), #4db6ac); }
+        .card-eco { background: linear-gradient(135deg, var(--success), #66bb6a); }
+
+        .card-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: var(--white);
+        }
+
+        .card-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--white);
+        }
+
+        .card-subtitle {
+            font-size: 1rem;
+            opacity: 0.9;
+            color: var(--white);
+        }
+
+        .card-details {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .card-stat {
+            background: rgba(255,255,255,0.2);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-weight: 600;
+            margin-top: 1rem;
+        }
+
+        /* Ocean Impact Infographic */
+        .impact-section {
+            padding: 100px 20px;
+            background: linear-gradient(135deg, var(--sand), #f9f3e6);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .stat-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--coral);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--deep-blue);
+            margin-bottom: 1rem;
+        }
+
+        .stat-bar {
+            height: 8px;
+            background: #e0e0e0;
+            border-radius: 4px;
+            overflow: hidden;
+            margin: 1rem 0;
+        }
+
+        .stat-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--coral), var(--seafoam));
+            width: 0;
+            border-radius: 4px;
+            transition: width 2s ease-in-out;
+            animation: fillBar 3s ease-in-out 0.5s forwards;
+        }
+
+        @keyframes fillBar {
+            to { width: 80%; }
+        }
+
+        /* How to Help Section */
+        .help-section {
+            padding: 100px 20px;
+            background: var(--white);
+        }
+
+        .help-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .help-item {
+            background: linear-gradient(135deg, var(--ocean-blue), var(--deep-blue));
+            color: var(--white);
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .help-item:hover {
+            transform: translateY(-10px);
+        }
+
+        .help-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--seafoam);
+        }
+
+        .help-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .help-description {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        /* Quiz Section */
+        .quiz-section {
+            padding: 100px 20px;
+            background: linear-gradient(135deg, var(--deep-blue), var(--ocean-blue));
+            color: var(--white);
+        }
+
+        .quiz-container {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .quiz-question {
+            background: rgba(255,255,255,0.1);
+            padding: 2rem;
+            border-radius: 15px;
+            margin: 2rem 0;
+            display: none;
+        }
+
+        .quiz-question.active {
+            display: block;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .question-text {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 2rem;
+        }
+
+        .quiz-options {
+            display: grid;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .quiz-option {
+            background: rgba(255,255,255,0.1);
+            border: 2px solid transparent;
+            padding: 1rem;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1.1rem;
+        }
+
+        .quiz-option:hover {
+            background: rgba(255,255,255,0.2);
+            border-color: var(--seafoam);
+        }
+
+        .quiz-option.selected {
+            background: var(--seafoam);
+            border-color: var(--seafoam);
+            color: var(--dark-gray);
+        }
+
+        .quiz-result {
+            display: none;
+            background: rgba(255,255,255,0.1);
+            padding: 2rem;
+            border-radius: 15px;
+            margin-top: 2rem;
+        }
+
+        .score-display {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--seafoam);
+            margin-bottom: 1rem;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--dark-gray);
+            color: var(--white);
+            padding: 50px 20px 20px;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+        }
+
+        .footer-link {
+            color: var(--seafoam);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .footer-link:hover {
+            color: var(--white);
+        }
+
+        .branding {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--seafoam);
+            text-decoration: none;
+            font-size: 0.9rem;
+            margin-top: 2rem;
+            transition: color 0.3s ease;
+            cursor: pointer;
+        }
+
+        .branding:hover {
+            color: var(--white);
+        }
+
+        .branding svg {
+            height: 1.2em;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .flip-card {
+                height: 250px;
+            }
+            
+            .cards-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 <body>
-<main role="main">
-
-<!-- Navigation Bar section-->
-<nav class="absolute top-0 left-0 w-full z-20 bg-black/40 backdrop-blur-sm" role="navigation">
-  <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-    
-    <!-- Logo / Brand -->
-    <a href="#" class="text-white text-2xl font-bold tracking-wide">
-      OceanGuard
-    </a>
-
-    <!-- Desktop Menu -->
-    <div class="hidden md:flex space-x-8">
-      <a href="#home" class="text-white hover:text-cyan-300 transition">Home</a>
-      <a href="#safety" class="text-white hover:text-cyan-300 transition">Safety Tips</a>
-      <a href="#help" class="text-white hover:text-cyan-300 transition">How to Help</a>
-      <a href="#contact" class="text-white hover:text-orange-400 transition">Contact</a>
-    </div>
-
-    <!-- Mobile Hamburger -->
-    <div class="md:hidden">
-      <button id="menu-btn" class="text-white focus:outline-none">
-        <!-- Hamburger Icon -->
-        <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
-        </svg>
-      </button>
-    </div>
-  </div>
-
-  <!-- Mobile Menu -->
-  <div id="mobile-menu" class="hidden md:hidden flex flex-col items-center bg-black/80">
-    <a href="#home" class="py-2 text-white hover:text-cyan-300">Home</a>
-    <a href="#safety" class="py-2 text-white hover:text-cyan-300">Safety Tips</a>
-    <a href="#help" class="py-2 text-white hover:text-cyan-300">How to Help</a>
-    <a href="#contact" class="py-2 text-white hover:text-orange-400">Contact</a>
-  </div>
-</nav>
-
-<!-- Mobile Menu Script -->
-<script>
-  const btn = document.getElementById('menu-btn');
-  const menu = document.getElementById('mobile-menu');
-  btn.addEventListener('click', () => {
-    menu.classList.toggle('hidden');
-  });
-</script>
-
-
-<!-- Hero Section -->
-<section class="relative min-h-screen">
-  <!-- Combined Background (Image + Gradient) -->
-  <div 
-    class="absolute inset-0 w-full h-full brightness-75"
-    style="
-      background-image: 
-        linear-gradient(to bottom, transparent, rgba(3, 105, 161, 0.8)),
-        url(/images/paper-fish.jpg);
-      background-size: cover;
-      background-position: center;
-    "
-  ></div>
-  
-  <!-- Dark Overlay for Text Readability -->
-  <div class="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60"></div>
-
-  <!-- Text Overlay -->
-  <div class="absolute bottom-0 right-0 z-10 p-12 max-w-2xl text-right">
-    <h1 class="text-6xl font-bold text-white mb-10">
-      Protect Our Beaches,<br>Protect Ourselves
-    </h1>
-    <p class="text-white text-xl font-normal max-w-2xl mb-16 leading-relaxed">
-      Every wave that touches shore carries both the beauty of marine life and the consequences of human action. 
-      We champion beach safety protocols that protect swimmers while preserving delicate coastal ecosystems. 
-      Through education and community action, we're creating sustainable solutions where humans and sea creatures 
-      thrive in balanced coexistence—because safeguarding our oceans means securing our own future.
-    </p>
-    <div class="flex gap-6 flex justify-end">
-      <a href="#safety" class="bg-orange-500 hover:bg-orange-600 text-white px-8 py-3 rounded-lg font-medium">
-        Safety Tips
-      </a>
-      <a href="#help" class="bg-cyan-400 hover:bg-cyan-500 text-blue-900 px-8 py-3 rounded-lg font-medium">
-        How to Help
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- Wave Divider -->
-<div class="relative -mt-1 h-20 w-full overflow-hidden">
-  <svg 
-    viewBox="0 0 1200 120" 
-    preserveAspectRatio="none" 
-    class="absolute top-0 left-0 w-full h-full"
-    style="fill: #0369a1;"
-  >
-    <path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".25"></path>
-    <path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" opacity=".5"></path>
-    <path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z"></path>
-  </svg>
-</div>
-
-<!-- Safety & Awareness Cards -->
-<section id="safety" class="pt-8 pb-16 bg-sky-600 to-blue-700 -mt-20">
-    <div class="container mx-auto px-6 mt-20">
-        <h2 class="text-4xl font-bold text-white mb-16 text-center">Be Smart, Stay Safe</h2>
-        
-         <!-- Cards container -->
-  <!-- Cards container -->
-  <div class="p-8 flex flex-row gap-6 justify-center mb-10 overflow-x-auto">
-    
-    <!-- Card 1 - Rip Current Safety -->
-    <div class="flip-card bg-transparent w-96 h-96 relative"> 
-      <div class="icon-container absolute -top-6 right-4 z-10"> <!-- Icon for THIS card -->
-        <img src="/images/safety-section-images/rip-current.png" class="w-12 h-12">
-      </div>
-      <div class="flip-card-inner relative w-full h-full text-center">
-        <!-- Front Side -->
-        <div class="flip-card-front absolute w-full h-full rounded-lg overflow-hidden flex flex-col bg-gradient-to-br from-blue-400 to-cyan-300 text-white border-4 border-white shadow-xl">
-          <div class="image-container h-1/2"> <!-- Fixed image height -->
-            <img src="/images/safety-section-images/rip-current.jpg" alt="rip current wave" class="w-full h-full object-cover">
-          </div>
-          <div class="content-container p-6 h-1/2 flex flex-col justify-center -mt-1"> <!-- Fixed content height -->
-            <h3 class="text-2xl font-bold mb-2">Rip Current Safety</h3>
-            <p class="text-white content-center">Your quick guide to spotting danger and escaping safely.</p>
-          </div>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Beach Awareness & Safety</h1>
+            <p>Protect Our Oceans & Ourselves - Smart behavior on the coast helps us all.</p>
+            <div class="cta-buttons">
+                <a href="#safety" class="btn btn-primary">Safety Tips</a>
+                <a href="#help" class="btn btn-secondary">Get Involved</a>
+            </div>
         </div>
-        <!-- Back Side -->
-        <div class="flip-card-back absolute w-full h-full rounded-lg p-6 flex flex-col justify-center bg-sky-600 text-white border-4 border-white shadow-xl">
-          <h3 class="text-xl font-bold -mb-5">If caught in a rip current:</h3>
-          <ul class="text-left space-y-2 mt-7">
-            <li>• <strong>Stay calm</strong> and conserve your energy</li>
-            <li>• <strong>Don't fight it</strong> – you can't swim straight in</li>
-            <li>• <strong>Swim parallel</strong> to the shoreline to escape</li>
-            <li>• <strong>Float and call</strong> for help if you can't break free</li>
-          </ul>
-          <a href="https://oceanservice.noaa.gov/facts/ripcurrent.html" target="_blank" class="bg-white text-blue-600 font-semibold py-2 px-4 rounded-lg shadow-md hover:bg-blue-50 transition-colors mx-auto mt-8">
-                                    Learn More
-                                </a>
-        </div>
-      </div>
-    </div>
-
-    <!-- Card 2 - Marine Life  -->
-    <div class="flip-card bg-transparent w-96 h-96 relative">
-      <div class="icon-container absolute -top-6 right-4 z-10">
-        <img src="/images/safety-section-images/jellyfish.png" alt="jellyfish icon" class="w-12 h-12">
-      </div>
-      <div class="flip-card-inner relative w-full h-full text-center">
-        <!-- Front Side -->
-        <div class="flip-card-front absolute w-full h-full rounded-lg overflow-hidden flex flex-col bg-gradient-to-br from-blue-400 to-cyan-300 text-white border-4 border-white shadow-xl">
-          <div class="image-container h-1/2">
-            <img src="/images/safety-section-images/whale.jpg" alt="a whale" class="w-full h-full object-cover">
-          </div>
-          <div class="content-container p-6 h-1/2 flex flex-col justify-center">
-            <h3 class="text-2xl font-bold mb-2">Respect Marine Life</h3>
-            <p class="text-white">Be a guardian of the blue.</p>
-          </div>
-        </div>
-        <!-- Back Side -->
-        <div class="flip-card-back absolute w-full h-full rounded-lg p-6 flex flex-col justify-center bg-sky-600 text-white border-4 border-white shadow-xl">
-          <h3 class="text-xl font-bold -mb-5">Protect ocean ecosystems:</h3>
-          <ul class="text-left space-y-2 mt-7">
-            <li>• <strong>Look, don't touch:</strong> Coral is alive and fragile</li>
-            <li>• <strong>Choose reusables:</strong> Refuse single-use plastics</li>
-            <li>• <strong>Wear reef-safe sunscreen</strong> to prevent chemical damage</li>
-            <li>• <strong>Leave no trace</strong> – take your trash and beyond</li>
-          </ul>
-          <a href="https://oceanservice.noaa.gov/news/sunscreen-corals.html" target="_blank" class="bg-white text-blue-600 font-semibold py-2 px-4 rounded-lg shadow-md hover:bg-blue-50 transition-colors mx-auto mt-8">
-                                    Learn More
-                                </a>
-        </div>
-      </div>
-    </div>
-
-    <!-- Card 3 - Sun Protection  -->
-     <div class="flip-card bg-transparent w-96 h-96 relative">
-      <div class="icon-container absolute -top-6 right-4 z-10">
-        <img src="/images/safety-section-images/sunscreen.png" alt="sunscreen icon" class="w-12 h-12">
-      </div>
-      <div class="flip-card-inner relative w-full h-full text-center">
-        <!-- Front Side -->
-        <div class="flip-card-front absolute w-full h-full rounded-lg overflow-hidden flex flex-col bg-gradient-to-br from-blue-400 to-cyan-300 text-white border-4 border-white shadow-xl">
-          <div class="image-container h-1/2">
-            <img src="/images/safety-section-images/spf.jpg" alt="people sunbathing" class="w-full h-full object-cover">
-          </div>
-          <div class="content-container p-6 h-1/2 flex flex-col justify-center">
-            <h3 class="text-2xl font-bold mb-2">Sun Protection</h3>
-            <p class="text-white">Enjoy the sun safely.</p>
-          </div>
-        </div>
-        <!-- Back Side -->
-        <div class="flip-card-back absolute w-full h-full rounded-lg p-6 flex flex-col justify-center bg-sky-600 text-white border-4 border-white shadow-xl">
-          <h3 class="text-xl font-bold mb-4">Sun safety essentials:</h3>
-          <ul class="text-left space-y-2">
-            <li>• <strong>Reapply SPF 30+</strong> every 2 hours & after swimming</li>
-            <li>• <strong>Seek shade</strong> during peak intensity (10am-4pm)</li>
-            <li>• <strong>Cover up</strong> with a hat, sunglasses, and a shirt</li>
-            <li>• <strong>Drink water</strong> consistently to avoid heat exhaustion</li>
-          </ul>
-          <a href=" https://www.fisheries.noaa.gov/topic/marine-life-viewing-guidelines" class="bg-white text-blue-600 font-semibold py-2 px-4 rounded-lg shadow-md hover:bg-blue-50 transition-colors mx-auto mt-8">
-                                    Learn More
-                                </a>
-        </div>
-      </div>
-    </div>
-  </div>
-    </div>
-  </div>
-    </div>
+        <div class="wave-separator"></div>
     </section>
 
-<!-- Stats Infographic Section -->
-<section class="py-16 bg-gradient-to-b from-sky-600 to-blue-700 text-white relative">
-    <div class="container mx-auto px-6">
-        <h2 class="text-4xl font-bold mb-12 text-center">Why It Matters</h2>
-        <div class="flex flex-wrap justify-center gap-8 pb-6">
-            <!-- Stat 1 -->
-            <div class="text-center">
-                <p class="text-5xl font-bold mb-2">80%</p>
-                <p class="text-cyan-400">of ocean pollution comes from land</p>
-            </div>
-            <!-- Stat 2 -->
-            <div class="text-center">
-                <p class="text-5xl font-bold mb-2">3,000+</p>
-                <p class="text-cyan-400">drowning deaths yearly</p>
-            </div>
-            <!-- Stat 3 -->
-            <div class="text-center">
-                <p class="text-5xl font-bold mb-2">90%</p>
-                <p class="text-cyan-400">of coral reefs could vanish by 2050</p>
+    <!-- Safety Cards Section -->
+    <section id="safety" class="safety-section">
+        <div class="container">
+            <h2 class="section-title">Essential Beach Safety</h2>
+            <div class="cards-grid">
+                <!-- Rip Current Safety -->
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front card-rip">
+                            <i class="fas fa-water card-icon"></i>
+                            <h3 class="card-title">Rip Current Safety</h3>
+                            <p class="card-subtitle">Know the signs, save a life</p>
+                        </div>
+                        <div class="flip-card-back">
+                            <h3 class="card-title">Rip Current Facts</h3>
+                            <p class="card-details">Rip currents cause 80% of beach rescues. Look for channels of churning, discolored water moving away from shore. If caught: don't panic, swim parallel to shore, then back to beach.</p>
+                            <div class="card-stat">80% of rescues involve rip currents</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sun Protection -->
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front card-sun">
+                            <i class="fas fa-sun card-icon"></i>
+                            <h3 class="card-title">Sun Protection</h3>
+                            <p class="card-subtitle">Shield yourself from UV damage</p>
+                        </div>
+                        <div class="flip-card-back">
+                            <h3 class="card-title">UV Protection Guide</h3>
+                            <p class="card-details">Use SPF 30+ sunscreen, reapply every 2 hours. Wear UV-protective clothing and sunglasses. Seek shade during peak hours (10 AM - 4 PM).</p>
+                            <div class="card-stat">1 in 5 Americans develop skin cancer</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Marine Life Respect -->
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front card-marine">
+                            <i class="fas fa-fish card-icon"></i>
+                            <h3 class="card-title">Respect Marine Life</h3>
+                            <p class="card-subtitle">Observe, don't disturb</p>
+                        </div>
+                        <div class="flip-card-back">
+                            <h3 class="card-title">Wildlife Guidelines</h3>
+                            <p class="card-details">Keep 150 feet from marine mammals. Never touch or feed wildlife. If you see stranded animals, contact local authorities immediately. Your actions protect entire ecosystems.</p>
+                            <div class="card-stat">100K+ marine animals die from human interference yearly</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Eco Behavior -->
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front card-eco">
+                            <i class="fas fa-leaf card-icon"></i>
+                            <h3 class="card-title">Eco Behavior</h3>
+                            <p class="card-subtitle">Leave only footprints</p>
+                        </div>
+                        <div class="flip-card-back">
+                            <h3 class="card-title">Environmental Impact</h3>
+                            <p class="card-details">Pack out all trash, use reef-safe sunscreen, avoid disturbing dunes and vegetation. Small actions create massive positive change for ocean health.</p>
+                            <div class="card-stat">73% of beach litter is plastic</div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<!-- CTA Section Sunset Gradient-->
-<section id="help" class="py-16 bg-blue-700">
-    <div class="container mx-auto px-6 text-center">
-        <h2 class="text-4xl font-bold text-white mb-6">Take Action Today</h2>
-        <p class="text-xl text-white mb-8 max-w-2xl mx-auto">Small changes make a big difference for beaches and marine life.</p>
-        <a href="#" class="bg-orange-500 hover:bg-blue-800 text-white px-8 py-3 rounded-lg font-medium inline-block">Join Our Movement</a>
-    </div>
-</section>
-</main>
-
-<!--footer section-->
-<footer class="bg-blue-700 text-white py-10">
-    <div class="container mx-auto px-4">
-        <div class="flex flex-col md:flex-row justify-between items-center md:items-start text-center md:text-left mb-6">
-            <!-- Mission Statement -->
-            <div class="mb-6 md:mb-0 md:max-w-xs">
-                <p class="text-xl font-semibold mb-2">Beach Safe</p>
-                <p class="text-blue-100 text-opacity-80">Your guide to safer seas and smarter shores.</p>
-            </div>
-
-            <!-- Quick Links -->
-            <div class="mb-6 md:mb-0">
-                <p class="font-bold mb-2">Explore</p>
-                <nav class="flex flex-col space-y-1">
-                    <a href="#rip-currents" class="text-blue-200 hover:text-white text-sm">Rip Currents</a>
-                    <a href="#marine-life" class="text-blue-200 hover:text-white text-sm">Marine Life</a>
-                    <a href="#sun-safety" class="text-blue-200 hover:text-white text-sm">Sun Safety</a>
-                </nav>
-            </div>
-
-            <!-- External Resources -->
-            <div>
-                <p class="font-bold mb-2">Learn More</p>
-                <nav class="flex flex-col space-y-1">
-                    <a href="https://www.weather.gov/" target="_blank" class="text-blue-200 hover:text-white text-sm">National Weather Service</a>
-                    <a href="https://www.noaa.gov/" target="_blank" class="text-blue-200 hover:text-white text-sm">NOAA Ocean Today</a>
-                </nav>
+    <!-- Ocean Impact Infographic -->
+    <section class="impact-section">
+        <div class="container">
+            <h2 class="section-title">Ocean Impact Statistics</h2>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">8M</div>
+                    <div class="stat-label">Tons of Plastic Enter Oceans Yearly</div>
+                    <div class="stat-bar">
+                        <div class="stat-fill"></div>
+                    </div>
+                    <p>Equivalent to dumping a garbage truck of plastic into the ocean every minute</p>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">100K+</div>
+                    <div class="stat-label">Marine Animals Die from Pollution</div>
+                    <div class="stat-bar">
+                        <div class="stat-fill"></div>
+                    </div>
+                    <p>Sea turtles, dolphins, and seabirds mistake plastic for food</p>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">73%</div>
+                    <div class="stat-label">Of Beach Litter is Plastic</div>
+                    <div class="stat-bar">
+                        <div class="stat-fill"></div>
+                    </div>
+                    <p>Single-use items like bottles, bags, and straws dominate beach waste</p>
+                </div>
             </div>
         </div>
+    </section>
 
-        <!-- Copyright -->
-        <div class="border-t border-blue-600 pt-6 text-center">
-            <p class="text-sm text-blue-200">&copy; 2025 Beach Safety Awareness. All rights reserved.</p>
+    <!-- How to Help Section -->
+    <section id="help" class="help-section">
+        <div class="container">
+            <h2 class="section-title">How You Can Help</h2>
+            <div class="help-grid">
+                <div class="help-item">
+                    <i class="fas fa-hands-helping help-icon"></i>
+                    <h3 class="help-title">Join Beach Cleanups</h3>
+                    <p class="help-description">Participate in local cleanup events or organize your own with friends and classmates.</p>
+                </div>
+                <div class="help-item">
+                    <i class="fas fa-sun help-icon"></i>
+                    <h3 class="help-title">Use Reef-Safe Sunscreen</h3>
+                    <p class="help-description">Choose mineral sunscreens without oxybenzone and octinoxate to protect coral reefs.</p>
+                </div>
+                <div class="help-item">
+                    <i class="fas fa-recycle help-icon"></i>
+                    <h3 class="help-title">Minimize Waste</h3>
+                    <p class="help-description">Bring reusable water bottles, bags, and containers to reduce single-use plastic consumption.</p>
+                </div>
+                <div class="help-item">
+                    <i class="fas fa-share-alt help-icon"></i>
+                    <h3 class="help-title">Spread Awareness</h3>
+                    <p class="help-description">Share knowledge with friends, family, and social media to multiply your positive impact.</p>
+                </div>
+                <div class="help-item">
+                    <i class="fas fa-graduation-cap help-icon"></i>
+                    <h3 class="help-title">Stay Educated</h3>
+                    <p class="help-description">Follow NOAA, Oceana, and National Geographic for the latest ocean conservation research.</p>
+                </div>
+                <div class="help-item">
+                    <i class="fas fa-vote-yea help-icon"></i>
+                    <h3 class="help-title">Support Ocean Policy</h3>
+                    <p class="help-description">Contact representatives about marine protection legislation and sustainable practices.</p>
+                </div>
+            </div>
         </div>
-    </div>
-</footer>
+    </section>
+
+    <!-- Interactive Quiz -->
+    <section class="quiz-section">
+        <div class="container">
+            <div class="quiz-container">
+                <h2 class="section-title">Are You Beach Smart?</h2>
+                <p>Test your knowledge with this interactive quiz!</p>
+
+                <!-- Quiz Questions -->
+                <div class="quiz-question active" data-question="1">
+                    <div class="question-text">If caught in a rip current, what should you do first?</div>
+                    <div class="quiz-options">
+                        <div class="quiz-option" data-answer="wrong">Swim directly back to shore</div>
+                        <div class="quiz-option" data-answer="wrong">Wave your arms and yell for help</div>
+                        <div class="quiz-option" data-answer="correct">Stay calm and swim parallel to the shore</div>
+                        <div class="quiz-option" data-answer="wrong">Float on your back and wait for rescue</div>
+                    </div>
+                </div>
+
+                <div class="quiz-question" data-question="2">
+                    <div class="question-text">What SPF sunscreen is recommended for effective protection?</div>
+                    <div class="quiz-options">
+                        <div class="quiz-option" data-answer="wrong">SPF 15</div>
+                        <div class="quiz-option" data-answer="correct">SPF 30 or higher</div>
+                        <div class="quiz-option" data-answer="wrong">SPF 8</div>
+                        <div class="quiz-option" data-answer="wrong">Any SPF is fine</div>
+                    </div>
+                </div>
+
+                <div class="quiz-question" data-question="3">
+                    <div class="question-text">How often should you reapply sunscreen?</div>
+                    <div class="quiz-options">
+                        <div class="quiz-option" data-answer="wrong">Once per day</div>
+                        <div class="quiz-option" data-answer="wrong">Every 4 hours</div>
+                        <div class="quiz-option" data-answer="correct">Every 2 hours and after swimming</div>
+                        <div class="quiz-option" data-answer="wrong">Only when you feel sunburned</div>
+                    </div>
+                </div>
+
+                <div class="quiz-question" data-question="4">
+                    <div class="question-text">What percentage of beach litter is plastic?</div>
+                    <div class="quiz-options">
+                        <div class="quiz-option" data-answer="wrong">25%</div>
+                        <div class="quiz-option" data-answer="wrong">50%</div>
+                        <div class="quiz-option" data-answer="correct">73%</div>
+                        <div class="quiz-option" data-answer="wrong">90%</div>
+                    </div>
+                </div>
+
+                <div class="quiz-question" data-question="5">
+                    <div class="question-text">What should you do if you encounter marine wildlife?</div>
+                    <div class="quiz-options">
+                        <div class="quiz-option" data-answer="wrong">Try to pet or feed them</div>
+                        <div class="quiz-option" data-answer="wrong">Get as close as possible for photos</div>
+                        <div class="quiz-option" data-answer="correct">Observe from a safe distance (150+ feet)</div>
+                        <div class="quiz-option" data-answer="wrong">Make noise to get their attention</div>
+                    </div>
+                </div>
+
+                <button id="nextBtn" class="btn btn-primary" style="display: none;">Next Question</button>
+                <button id="submitBtn" class="btn btn-primary" style="display: none;">Get Results</button>
+
+                <div class="quiz-result" id="quizResult">
+                    <div class="score-display" id="scoreDisplay">0/5</div>
+                    <div id="resultMessage"></div>
+                    <button id="restartBtn" class="btn btn-secondary">Take Quiz Again</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <h3>Beach Awareness & Safety</h3>
+            <p>Empowering the next generation to protect our oceans and coastal communities through education, awareness, and responsible action.</p>
+            
+            <div class="footer-links">
+                <a href="https://www.noaa.gov/" class="footer-link" target="_blank">NOAA</a>
+                <a href="https://oceana.org/" class="footer-link" target="_blank">Oceana</a>
+                <a href="https://www.nationalgeographic.com/environment/oceans/" class="footer-link" target="_blank">National Geographic Oceans</a>
+                <a href="https://www.epa.gov/trash-free-waters" class="footer-link" target="_blank">EPA Trash Free Waters</a>
+            </div>
+
+          
+
+            <p style="margin-top: 2rem; opacity: 0.7;">&copy; 2025 Beach Awareness & Safety Project. Educational content sourced from NOAA, EPA, and marine science research.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Quiz functionality
+        class BeachQuiz {
+            constructor() {
+                this.currentQuestion = 1;
+                this.totalQuestions = 5;
+                this.score = 0;
+                this.userAnswers = [];
+                this.init();
+            }
+
+            init() {
+                this.bindEvents();
+                this.updateQuestionDisplay();
+            }
+
+            bindEvents() {
+                // Option selection
+                document.querySelectorAll('.quiz-option').forEach(option => {
+                    option.addEventListener('click', (e) => {
+                        this.selectOption(e.target);
+                    });
+                });
+
+                // Next button
+                document.getElementById('nextBtn').addEventListener('click', () => {
+                    this.nextQuestion();
+                });
+
+                // Submit button
+                document.getElementById('submitBtn').addEventListener('click', () => {
+                    this.showResults();
+                });
+
+                // Restart button
+                document.getElementById('restartBtn').addEventListener('click', () => {
+                    this.restartQuiz();
+                });
+            }
+
+            selectOption(selectedOption) {
+                const currentQuestionElement = document.querySelector(`.quiz-question[data-question="${this.currentQuestion}"]`);
+                const options = currentQuestionElement.querySelectorAll('.quiz-option');
+                
+                // Remove previous selections
+                options.forEach(option => option.classList.remove('selected'));
+                
+                // Add selection to clicked option
+                selectedOption.classList.add('selected');
+                
+                // Store answer
+                const isCorrect = selectedOption.dataset.answer === 'correct';
+                this.userAnswers[this.currentQuestion - 1] = {
+                    selected: selectedOption.textContent,
+                    correct: isCorrect
+                };
+
+                // Show next/submit button
+                if (this.currentQuestion < this.totalQuestions) {
+                    document.getElementById('nextBtn').style.display = 'block';
+                } else {
+                    document.getElementById('submitBtn').style.display = 'block';
+                }
+            }
+
+            nextQuestion() {
+                // Hide current question
+                document.querySelector(`.quiz-question[data-question="${this.currentQuestion}"]`).classList.remove('active');
+                
+                // Move to next question
+                this.currentQuestion++;
+                
+                // Show next question
+                document.querySelector(`.quiz-question[data-question="${this.currentQuestion}"]`).classList.add('active');
+                
+                // Hide next button
+                document.getElementById('nextBtn').style.display = 'none';
+                
+                this.updateQuestionDisplay();
+            }
+
+            updateQuestionDisplay() {
+                // Update any question counter if needed
+            }
+
+            showResults() {
+                // Calculate score
+                this.score = this.userAnswers.filter(answer => answer.correct).length;
+                
+                // Hide current question
+                document.querySelector(`.quiz-question[data-question="${this.currentQuestion}"]`).classList.remove('active');
+                document.getElementById('submitBtn').style.display = 'none';
+                
+                // Show results
+                const resultElement = document.getElementById('quizResult');
+                const scoreDisplay = document.getElementById('scoreDisplay');
+                const resultMessage = document.getElementById('resultMessage');
+                
+                scoreDisplay.textContent = `${this.score}/${this.totalQuestions}`;
+                
+                let message = ``;
+                let messageClass = ``;
+                
+                if (this.score === 5) {
+                    message = `🌊 Excellent! You're a beach safety expert! Share your knowledge with others to help protect our oceans and keep everyone safe.`;
+                    messageClass = `success`;
+                } else if (this.score >= 3) {
+                    message = `🏖️ Good job! You have solid beach safety knowledge. Review the areas you missed to become even more beach smart.`;
+                    messageClass = `warning`;
+                } else {
+                    message = `📚 Keep learning! Beach safety is crucial for protecting yourself and marine life. Review our safety tips and take the quiz again.`;
+                    messageClass = `danger`;
+                }
+                
+                resultMessage.innerHTML = `<p style="font-size: 1.2rem; margin-bottom: 1rem;">${message}</p>`;
+                resultElement.style.display = 'block';
+                
+                // Scroll to results
+                resultElement.scrollIntoView({ behavior: 'smooth' });
+            }
+
+            restartQuiz() {
+                // Reset quiz state
+                this.currentQuestion = 1;
+                this.score = 0;
+                this.userAnswers = [];
+                
+                // Hide results
+                document.getElementById('quizResult').style.display = 'none';
+                
+                // Reset all questions
+                document.querySelectorAll('.quiz-question').forEach((question, index) => {
+                    question.classList.remove('active');
+                    if (index === 0) question.classList.add('active');
+                    
+                    // Clear selections
+                    question.querySelectorAll('.quiz-option').forEach(option => {
+                        option.classList.remove('selected');
+                    });
+                });
+                
+                // Hide buttons
+                document.getElementById('nextBtn').style.display = 'none';
+                document.getElementById('submitBtn').style.display = 'none';
+            }
+        }
+
+        // Initialize quiz when page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            new BeachQuiz();
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe elements for animation
+        document.addEventListener('DOMContentLoaded', () => {
+            const animateElements = document.querySelectorAll('.flip-card, .stat-card, .help-item');
+            animateElements.forEach(el => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(30px)';
+                el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(el);
+            });
+        });
+    </script>
+
 </body>
 </html>
