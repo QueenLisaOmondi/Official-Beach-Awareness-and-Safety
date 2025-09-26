@@ -6,6 +6,7 @@
     <title>Beach Awareness & Safety - Protect Our Oceans & Ourselves</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="../dist/output.css" rel="stylesheet">
     <style>
         :root {
             --ocean-blue: #0077be;
@@ -179,6 +180,8 @@
             text-align: center;
             transition: transform 0.8s;
             transform-style: preserve-3d;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
         }
 
         .flip-card:hover .flip-card-inner {
@@ -189,14 +192,15 @@
             position: absolute;
             width: 100%;
             height: 100%;
+            -webkit-backface-visibility: hidden;
             backface-visibility: hidden;
             border-radius: 15px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            padding: 25px;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            padding: 2rem;
         }
 
         .flip-card-back {
@@ -212,14 +216,15 @@
 
         .card-icon {
             font-size: 3rem;
-            margin-bottom: 1rem;
+            margin-bottom: 15px;
             color: var(--white);
+            opacity: 0.9;
         }
 
         .card-title {
             font-size: 1.5rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
+            font-weight: 600;
+            margin-bottom: 10px;
             color: var(--white);
         }
 
@@ -227,20 +232,22 @@
             font-size: 1rem;
             opacity: 0.9;
             color: var(--white);
+            font-weight: 300;
         }
 
         .card-details {
             font-size: 0.95rem;
-            line-height: 1.6;
-            margin-bottom: 1rem;
+            line-height: 1.5;
+            margin-bottom: 15px;
         }
 
         .card-stat {
             background: rgba(255,255,255,0.2);
-            padding: 0.5rem 1rem;
+            padding: 8px 15px;
             border-radius: 20px;
+            font-size: 0.9rem;
             font-weight: 600;
-            margin-top: 1rem;
+            margin-top: auto;
         }
 
         /* Ocean Impact Infographic */
@@ -535,7 +542,7 @@
                 </div>
 
                 <!-- Sun Protection -->
-                <div class="flip-card">
+                <div class="flip-card ">
                     <div class="flip-card-inner">
                         <div class="flip-card-front card-sun">
                             <i class="fas fa-sun card-icon"></i>
@@ -561,7 +568,7 @@
                         <div class="flip-card-back">
                             <h3 class="card-title">Wildlife Guidelines</h3>
                             <p class="card-details">Keep 150 feet from marine mammals. Never touch or feed wildlife. If you see stranded animals, contact local authorities immediately. Your actions protect entire ecosystems.</p>
-                            <div class="card-stat">100K+ marine animals die from human interference yearly</div>
+                            <div class="card-stat ">100K+ marine animals die from human interference yearly</div>
                         </div>
                     </div>
                 </div>
